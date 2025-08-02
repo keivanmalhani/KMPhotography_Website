@@ -1,0 +1,126 @@
+/* Reset some default browser styles so everything looks consistent */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* General body styles: font, background color, text spacing */
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #fff;
+  color: #222;
+  line-height: 1.6;
+  padding: 0 20px;
+}
+
+/* Header styles: spacing and border */
+header {
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+/* Main title */
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+/* Navigation bar styles */
+nav ul {
+  list-style: none; /* Removes bullet points */
+  display: flex;     /* Makes nav items side-by-side */
+  justify-content: center;
+  gap: 20px;         /* Space between nav items */
+}
+
+/* Nav link styles */
+nav a {
+  text-decoration: none; /* No underline */
+  color: #444;
+  font-weight: bold;
+}
+
+/* Hover effect for nav links */
+nav a:hover {
+  color: #000;
+}
+
+/* Section spacing and layout */
+section {
+  padding: 60px 0;      /* Space above and below */
+  max-width: 900px;     /* Keeps content readable */
+  margin: auto;         /* Center it horizontally */
+  text-align: center;
+}
+
+/* Responsive image grid for portfolio */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* responsive columns */
+  gap: 16px;
+  margin-top: 20px;
+}
+
+/* Image styles */
+.gallery img {
+  width: 100%;           /* Full width of the grid column */
+  height: auto;
+  object-fit: cover;     /* Keeps images cropped nicely */
+  border-radius: 4px;    /* Slightly rounded corners */
+  transition: transform 0.3s ease; /* Smooth hover zoom */
+}
+
+/* Hover effect to slightly zoom images */
+.gallery img:hover {
+  transform: scale(1.02);
+}
+
+/* Contact form styles */
+form {
+  max-width: 500px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+/* Label spacing */
+form label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+/* Input and textarea styles */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Button styles */
+button {
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #333;
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #666;
+}
