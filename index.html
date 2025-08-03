@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Keivan Malhani | Photography</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Include Lightbox CSS for image viewing -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
   <header>
-    <h1>Keivan Malhani</h1>
+    <h1 class="typewriter">Keivan Malhani</h1>
     <nav>
       <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
       <ul class="nav-menu">
@@ -24,12 +24,13 @@
   </header>
 
   <section id="home">
-    <h2>Welcome</h2>
-    <p>Visual stories from CDMX, Colorado, and beyond.</p>
+    <h2 data-aos="fade-up">Welcome</h2>
+    <p data-aos="fade-up" data-aos-delay="100">Visual stories from CDMX, Colorado, and beyond.</p>
+    <button id="theme-toggle">Toggle Dark Mode</button>
   </section>
 
   <section id="portfolio">
-    <h2>Portfolio</h2>
+    <h2 data-aos="fade-up">Portfolio</h2>
     <div class="gallery">
       <a href="images/photo1.jpg" data-lightbox="portfolio" data-title="Photo 1"><img src="images/photo1.jpg" alt="Photo 1" /></a>
       <a href="images/photo2.jpg" data-lightbox="portfolio" data-title="Photo 2"><img src="images/photo2.jpg" alt="Photo 2" /></a>
@@ -38,19 +39,73 @@
   </section>
 
   <section id="prints">
-    <h2>Prints</h2>
-    <p>Purchase high-res digital downloads via Gumroad.</p>
+    <h2 data-aos="fade-up">Prints</h2>
+    <p data-aos="fade-up" data-aos-delay="100">Purchase high-res digital downloads via Gumroad.</p>
     <a class="gumroad-button" href="https://gumroad.com/l/yourprint">Buy Now</a>
     <script src="https://gumroad.com/js/gumroad.js"></script>
   </section>
 
   <section id="about">
-    <h2>About Me</h2>
-    <p>I'm Keivan — a photographer capturing mood, light, and movement across places I love. This is my visual journal.</p>
+    <h2 data-aos="fade-up">About Me</h2>
+    <p data-aos="fade-up" data-aos-delay="100">I'm Keivan — a photographer capturing mood, light, and movement across places I love. This is my visual journal.</p>
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
+    <h2 data-aos="fade-up">Contact</h2>
     <form action="https://formspree.io/f/yourformid" method="POST">
       <label>Name: <input type="text" name="name" required /></label><br />
-      <l
+      <label>Email: <input type="email" name="email" required /></label><br />
+      <label>Message: <textarea name="message" required></textarea></label><br />
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+ <section id="instagram">
+  <h2 data-aos="fade-up">Follow Me</h2>
+  <iframe src="https://lightwidget.com/widgets/YOUR_WIDGET_ID.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 Keivan Malhani</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+  <!-- Toggle Nav Script -->
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    toggle.addEventListener('click', () => {
+      navMenu.classList.toggle('nav-open');
+    });
+  </script>
+
+  <!-- Dark Mode Script -->
+  <script>
+    const toggleTheme = document.getElementById('theme-toggle');
+    toggleTheme.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+
+  <!-- Typewriter Animation -->
+  <script>
+    const typeText = document.querySelector('.typewriter');
+    const text = typeText.textContent;
+    let i = 0;
+    typeText.textContent = '';
+    function typeWriter() {
+      if (i < text.length) {
+        typeText.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+    typeWriter();
+  </script>
+</body>
+</html>
