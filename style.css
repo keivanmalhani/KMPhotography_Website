@@ -1,97 +1,131 @@
-/* Reset some default browser styles so everything looks consistent */
+/* Reset some default browser styles */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* General body styles: font, background color, text spacing */
+/* Base body styles */
 body {
   font-family: 'Helvetica Neue', sans-serif;
   background-color: #fff;
   color: #222;
   line-height: 1.6;
   padding: 0 20px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Header styles: spacing and border */
+/* Dark mode */
+body.dark-mode {
+  background-color: #111;
+  color: #eee;
+}
+
+/* Header */
 header {
   padding: 20px 0;
   border-bottom: 1px solid #ddd;
   text-align: center;
 }
 
-/* Main title */
 header h1 {
   font-size: 2.2rem;
   margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid;
+  width: fit-content;
+  animation: blink-caret 0.75s step-end infinite;
 }
 
-/* Navigation bar styles */
+@keyframes blink-caret {
+  50% { border-color: transparent; }
+}
+
+/* Navigation */
 nav ul {
-  list-style: none; /* Removes bullet points */
-  display: flex;     /* Makes nav items side-by-side */
+  list-style: none;
+  display: flex;
   justify-content: center;
-  gap: 20px;         /* Space between nav items */
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-/* Nav link styles */
 nav a {
-  text-decoration: none; /* No underline */
+  text-decoration: none;
   color: #444;
   font-weight: bold;
 }
 
-/* Hover effect for nav links */
 nav a:hover {
   color: #000;
 }
 
-/* Section spacing and layout */
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    display: none;
+  }
+  .nav-menu.nav-open {
+    display: flex;
+  }
+  .nav-toggle {
+    display: block;
+  }
+}
+
+/* Sections */
 section {
-  padding: 60px 0;      /* Space above and below */
-  max-width: 900px;     /* Keeps content readable */
-  margin: auto;         /* Center it horizontally */
+  padding: 60px 0;
+  max-width: 900px;
+  margin: auto;
   text-align: center;
 }
 
-/* Responsive image grid for portfolio */
+/* Gallery */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* responsive columns */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
   margin-top: 20px;
 }
 
-/* Image styles */
 .gallery img {
-  width: 100%;           /* Full width of the grid column */
+  width: 100%;
   height: auto;
-  object-fit: cover;     /* Keeps images cropped nicely */
-  border-radius: 4px;    /* Slightly rounded corners */
-  transition: transform 0.3s ease; /* Smooth hover zoom */
+  object-fit: cover;
+  border-radius: 4px;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Hover effect to slightly zoom images */
-.gallery img:hover {
-  transform: scale(1.02);
+.gallery a:hover img {
+  transform: scale(1.03);
+  filter: brightness(0.9) contrast(1.1);
 }
 
-/* Contact form styles */
+/* Forms */
 form {
   max-width: 500px;
   margin: 20px auto;
   text-align: left;
 }
 
-/* Label spacing */
 form label {
   display: block;
   margin-bottom: 12px;
   font-weight: bold;
 }
 
-/* Input and textarea styles */
 input, textarea {
   width: 100%;
   padding: 10px;
@@ -99,9 +133,17 @@ input, textarea {
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  background-color: #fff;
+  color: #222;
 }
 
-/* Button styles */
+body.dark-mode input,
+body.dark-mode textarea {
+  background-color: #222;
+  color: #eee;
+  border: 1px solid #444;
+}
+
 button {
   padding: 10px 20px;
   background-color: #000;
@@ -110,17 +152,30 @@ button {
   font-weight: bold;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-/* Button hover effect */
 button:hover {
   background-color: #333;
 }
 
-/* Footer styles */
 footer {
   text-align: center;
   padding: 20px;
   font-size: 0.9rem;
   color: #666;
+}
+
+/* Instagram section spacing */
+#instagram {
+  padding: 40px 0;
+}
+
+/* LightWidget iframe responsiveness */
+.lightwidget-widget {
+  width: 100%;
+  min-height: 300px;
+  max-width: 100%;
+  border: none;
+  overflow: hidden;
 }
